@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Моё-портфолио - Мои проекты</title>
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/projects.css">
+</head>
+<body>
+    <header>
+        <nav>
+            <ul>
+                <li><a href="index.html">Главная</a></li>
+                <li><a href="about.html">О себе</a></li>
+                <li><a href="goals.html">Цели</a></li>
+                <li><a href="services.html">Услуги</a></li>
+                <li><a href="projects.html">Проекты</a></li>
+            </ul>
+        </nav>
+    </header>
+    <main>
+        <section id="projects">
+            <h2>Мои проекты</h2>
+            <div class="table-container">
+                <table class="projects-table">
+                    <thead>
+                        <tr>
+                            <th>Название</th>
+                            <th>Описание</th>
+                            <th>Изображение</th>
+                            <th>Используемые языки</th>
+                        </tr>
+                    </thead>
+                    <tbody>    
+                        <tr>
+                            <td><strong>Лендинг для кафе</strong></td>
+                            <td>Красочная одностраничная страница для местной кофейни адаптивным дизайном и формой
+                                обратной связи.</td>
+                            <td><img src="https://img.freepik.com/premium-psd/cozy-cafe-with-large-windows_957244-31295.jpg?semt=ais_hybrid&w=740&q=80"
+                                    alt="Лендинг кафе">
+                            </td>
+                            <td>
+                                <span class="lang-tag">HTML</span>
+                                <span class="lang-tag">CSS</span>
+                                <span class="lang-tag">JS</span>
+                            </td>
+                        </tr>
+                            <td><strong>Приложение для коршеринга</strong></td>
+                            <td>Приложение позволяет кратковременно взять на автомобиль передвижения по городу.</td>
+                            <td><img src="https://sun9-8.userapi.com/dWkFkIF9cYJ9atYmeTJPHXcnQgpAr2MKp-4Wfg/D5aSEgioH1Y.jpg"
+                                   alt="Телефон автомобиля"> 
+                            </td>
+                            <td>
+                                <span class="lang-tag">HTML</span>
+                                <span class="lang-tag">CSS</span>
+                                <span class="lang-tag">JS</span>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td><strong>Моё-портфолио</strong></td>
+                            <td>Многостраничный сайт для покупки билетов в кино.</td>
+                            <td><img src= https://img.freepik.com/premium-vector/cinema-ticket-admit-one-coupon-entrance-film-strip-tickets-cinema-theatre_123447-5636.jpg?semtais_hybrid&w.740"
+                                    alt="билет в кино">
+                            </td>
+                            <td>
+                                <span class="lang-tag">HTML</span>
+                                <span class="lang-tag">CSS</span>
+                                <span class="lang-tag">JS</span>
+                            </td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </section>
+    </main>
+    <footer>
+        <div class="footer-content">
+            <p>&copy; 2026 Моё-портфолио </p>
+            <div class="footer-contacts">
+                <a href="mailto:example@email.com" class="email-link">example@email.com</a>
+                <div class="socials">
+                    <a href="https://vk.com/" target="_blank" class="social-icon vk" title="ВКонтакте">
+                        <svg viewBox="0 0 24 24" width="24" height="24">
+                            <path fill="currentColor">
+                        </svg>
+                    </a>
+                    <a href="#" target="_blank" class="social-icon max" title="Max">
+                        <svg viewBox="0 0 24 24" width="24" height="24">
+                            <circle cx="12" cy="12" r="12" fill="white" />
+                            <text x="50%" y="50%" fill="#2c3e50" font-family="sans-serif" font-weight="bold"
+                                font-size="15" text-anchor="middle" dominant-baseline="central">M</text>
+                        </svg>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </footer>
+    <script>
+        document.addEventListener("DOMContentLoaded", () => {
+            // Создаем модальное окно для изображений
+            const overlay = document.createElement("div");
+            overlay.className = "image-modal-overlay";
+            overlay.innerHTML = '<img class="modal-image" id="modal-image" src="" alt="">';
+            document.body.appendChild(overlay);
+
+            const modalImage = document.getElementById("modal-image");
+            const images = document.querySelectorAll(".projects-table img");
+
+            // Открытие окна при клике на изображение
+            images.forEach(img => {
+                img.addEventListener("click", () => {
+                    modalImage.src = img.src;
+                    modalImage.alt = img.alt;
+                    // Рассчитываем размер для корректного отображения оригинала
+                    overlay.classList.add("active");
+                });
+            });
+
+            // Закрытие окна при клике вне изображения
+            overlay.addEventListener("click", (event) => {
+                if (event.target === overlay) {
+                    overlay.classList.remove("active");
+                }
+            });
+        });
+    </script>
+</body>
+</html>

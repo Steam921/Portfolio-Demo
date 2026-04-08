@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Мое Портфолио - Главная</title>
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/index.css">
+</head>
+
+<body>
+    <header>
+        <nav>
+            <ul>
+                <li><a href="index.html">Главная</a></li>
+                <li><a href="about.html">О себе</a></li>
+                <li><a href="goals.html">Цели</a></li>
+                <li><a href="services.html">Услуги</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <main>
+        <section id="home">
+            <h1>Привет! Я начинающий разработчик</h1>
+            <h2>Мои навыки и технологии для изучения</h2>
+            <div class="cards">
+                <div class="card">
+                    <h3>Текущие навыки</h3>
+                    <p>HTML, CSS, базовый JavaScript</p>
+                </div>
+                <div class="card">
+                    <h3>Хочу изучить</h3>
+                    <p>C++ C#</p>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer>
+        <div class="footer-content">
+            <p>&copy; 2026 Мое Портфолио</p>
+            <div class="footer-contacts">
+                <a href="mailto:example@email.com" class="email-link">example@email.com</a>
+                <div class="socials">
+                    <a href="https://vk.com/" target="_blank" class="social-icon vk" title="ВКонтакте">
+ 
+                        <svg viewBox="0 0 24 24" width="24" height="24">
+                            <path fill="currentColor"      
+                        </svg>
+                    </a>
+                        <svg viewBox="0 0 24 24" width="24" height="24">
+                            <circle cx="12" cy="12" r="12" fill="white" />
+                            <text x="50%" y="50%" fill="#2c3e50" font-family="sans-serif" font-weight="bold"
+                                font-size="15" text-anchor="middle" dominant-baseline="central">M</text>
+                        </svg>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </footer>
+  <script>
+        document.addEventListener("DOMContentLoaded", () => {
+            // Создаем модальное окно и добавляем его в body
+            const modalOverlay = document.createElement("div");
+            modalOverlay.className = "modal-overlay";
+            modalOverlay.innerHTML = '<div class="modal-content" id="modal-content"></div>';
+            document.body.appendChild(modalOverlay);
+
+            const modalContent = modalOverlay.querySelector(".modal-content");
+            const cards = document.querySelectorAll(".card");
+
+            cards.forEach(card => {
+                card.addEventListener("click", () => {
+                    // Копируем содержимое карточки в модальное окно
+                    modalContent.innerHTML = card.innerHTML;
+                    // Открываем модальное окно
+                    modalOverlay.classList.add("active");
+                });
+            });
+
+            // Закрываем окно при клике вне его области
+            modalOverlay.addEventListener("click", (event) => {
+                if (event.target === modalOverlay) {
+                    modalOverlay.classList.remove("active");
+                }
+            });
+        });
+    </script>
+</body>
+</html>
